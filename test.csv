@@ -1,0 +1,15 @@
+eol,\r\n
+
+httpget,http://www.scienceofspirituality.info
+
+#accept,localhost,5555,10
+#listen,5
+#send,hello there
+#send,peanut butter jelly
+#send,"GET / HTTP/1.1\r\nHost: scienceofspirituality.info\r\nConnection: keep-alive\r\nCache-Control: max-age=0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nUser-Agent: THE AGENT OF THE NED\r\nDNT: 1\r\nAccept-Language: en-US,en;q=0.8\r\n"
+#connect,google.com,80,5
+#send,"GET / HTTP/1.1\r\nHost: google.com\r\nUser-Agent: THE NED AGENT\r\n"
+#httpget,/
+#send,"GET / HTTP/1.1\r\nHost: scienceofspirituality.info\r\nConnection: keep-alive\r\nCache-Control: max-age=0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nUser-Agent: THE AGENT OF THE NED\r\nDNT: 1\r\nAccept-Language: en-US,en;q=0.8\r\n"
+#send,"GET / HTTP/1.1\r\nConnection: keep-alive\r\nCache-Control: max-age=0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nUser-Agent: Herman\r\nDNT: 1\r\nAccept-Language: en-US,en;q=0.8\r\n"
+#listen,10

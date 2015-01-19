@@ -1,0 +1,35 @@
+object brainstorm:
+
+what to do?
+-act as client or server
+--listen on any IP and port
+--send to any IP and port
+-send and receive data
+
+
+
+ScriptRunner
+  executes script instructions
+
+Networker
+  talks to other things
+  can act as client or server, not at same time
+  but within a script, can change between them
+
+Data
+  stores/reads/writes data
+  interacts with ScriptParser and Networker
+
+
+
+script
+  tells program what to do
+
+
+Http
+ HTTP REST object
+ contains:
+ user agent
+ remote host name
+ HTTP version
+
