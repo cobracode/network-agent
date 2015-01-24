@@ -1,3 +1,6 @@
+package ned.apps; 
+
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -29,6 +32,7 @@ public class SimpleProxyServer extends Thread {
     }
 
     public void run() {
+        System.out.println("SimpleProxyServer::run() begin");
         try {
             loop = true;
             runServer(host, remoteport, localport);
@@ -36,19 +40,25 @@ public class SimpleProxyServer extends Thread {
             loop = false;
             e.printStackTrace();
         }
+        System.out.println("SimpleProxyServer::run() end");
     }
 
     private void runServer(String host, int remoteport, int localport) throws IOException {
+        System.out.println("SimpleProxyServer::runServer() begin");
         ss = new ServerSocket(localport);
         final byte[] request = new byte[1024];
         byte[] reply = new byte[4096];
         while (loop) {
             Socket client = null, server = null;
             try {
+                System.out.println("SimpleProxyServer::runServer(): waiting for client connection on port " + localport);
                 // Wait for a connection on the local port
                 client = ss.accept();
+
+                System.out.println("SimpleProxyServer::runServer(): client connected");
                 final InputStream streamFromClient = client.getInputStream();
                 final OutputStream streamToClient = client.getOutputStream();
+
                 // Make a connection to the real server.
                 // If we cannot connect to the server, send an error to the
                 // client, disconnect, and continue waiting for connections.
